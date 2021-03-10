@@ -45,6 +45,8 @@ namespace WebAPI
 
             //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+            services.AddCors(); //Cross Origin Response
+
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -79,6 +81,8 @@ namespace WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader()); // Belirtilen adresten herhangi bir istek için izin ver
 
             app.UseHttpsRedirection();
 

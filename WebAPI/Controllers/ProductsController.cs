@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
@@ -31,6 +32,9 @@ namespace WebAPI.Controllers
         {
             //Swagger -- hazır dokümantasyon yani bu API şu şekilde kullanılır, şu durumda şu kullanılır sen de ona göre yapılandır arayüzünü der gibi.
             //Dependency chain -- bağımlılık zinciri
+
+            Thread.Sleep(5000);
+
             var result = _productService.GetAll();
             if (result.Success)
             {
