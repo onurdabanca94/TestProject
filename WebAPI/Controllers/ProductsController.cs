@@ -33,7 +33,7 @@ namespace WebAPI.Controllers
             //Swagger -- hazır dokümantasyon yani bu API şu şekilde kullanılır, şu durumda şu kullanılır sen de ona göre yapılandır arayüzünü der gibi.
             //Dependency chain -- bağımlılık zinciri
 
-            Thread.Sleep(5000);
+            Thread.Sleep(1000);
 
             var result = _productService.GetAll();
             if (result.Success)
