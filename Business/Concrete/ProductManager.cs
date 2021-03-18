@@ -59,10 +59,10 @@ namespace Business.Concrete
         {
             //İş kodları
             //Yetkisi var mı?
-            if (DateTime.Now.Hour == 1)
+            if (DateTime.Now.Hour == 5)
             {
                 return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
-                //MaintenanceTime - Bakım zamanı olarak tanımdır, 22-22.59'a kadar Product listesini null döndürecek.
+                //MaintenanceTime - Bakım zamanı olarak tanımdır, 05-05.59'a kadar Product listesini null döndürecek.
             }
 
             return new SuccessDataResult<List<Product>>(_productDal.GetAll(), Messages.ProductsListed);
