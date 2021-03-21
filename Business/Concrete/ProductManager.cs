@@ -32,14 +32,13 @@ namespace Business.Concrete
             _categoryService = categoryService;
         }
 
-        [SecuredOperation("product.add, admin")]
+        //[SecuredOperation("product.add, admin")]
         [ValidationAspect(typeof(ProductValidator))] // Cross Cutting Concern örnekleri; Validation, Log, Cache, Transaction, Auth - Attribute'lara typeof vermemiz şart
         [CacheRemoveAspect("IProductService.Get")]
         public IResult Add(Product product)
         {
             // business codes - iş kodu
             // validation - doğrulama kodu - attribute ile anlamlandırdığımız için kodunu yazmamıza gerek kalmadı.
-            
             //Aşağıda polimorfizm uygulanmıştır.
             IResult result = BusinessRules.Run(CheckIfProductNameIsSameAsAlready(product.ProductName),
                  CheckIfProductCountOfCategoryCorrect(product.CategoryId),
