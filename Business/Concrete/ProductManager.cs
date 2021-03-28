@@ -32,7 +32,8 @@ namespace Business.Concrete
             _categoryService = categoryService;
         }
 
-        //[SecuredOperation("product.add, admin")]
+        //Claim
+        [SecuredOperation("product.add, admin")]
         [ValidationAspect(typeof(ProductValidator))] // Cross Cutting Concern örnekleri; Validation, Log, Cache, Transaction, Auth - Attribute'lara typeof vermemiz şart
         [CacheRemoveAspect("IProductService.Get")]
         public IResult Add(Product product)
